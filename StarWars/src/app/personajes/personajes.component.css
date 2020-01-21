@@ -20,12 +20,22 @@
 
 .estilo_Tabla_1 tr td {
     color: #000000;
+    
     background-color: #EAF2D3;
 }
 
-button {
-    margin-right: 2em;
-    border-radius: 11px;
-    height: 35px;
-    background-color: pink;
+caption {
+    caption-side: bottom;
+    color: green;
+}
+
+#patras, #palante{
+    padding: 0.6em;
+    background-color: darksalmon;
+    border-radius: 10px;
+}
+
+.enlace{
+    text-decoration: underline;
+    color: blue !important;
 }

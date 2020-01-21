@@ -13,6 +13,18 @@ export class PersonajesComponent implements OnInit {
   public datosPlaneta: Object = null;
   private urlAnt: string;
   private urlSig: string;
+  private urlPlanet: any;
+  private mundo: Object;
+
+  private asignarDatos(datos:Object){
+    this.datos = datos;
+    console.log(this.datos);
+    console.log(this.datos.next);
+    this.listPer = this.datos.results; 
+    this.urlSig = this.datos.next;
+    this.urlAnt = this.datos.previous;
+    this.urlPlanet = this.datos.results;
+  }
 
   constructor(private serviciopAjax: PAjaxService) {
     this.serviciopAjax.peti().subscribe(daticos =>{
@@ -23,40 +35,39 @@ export class PersonajesComponent implements OnInit {
    }
 
    sig(){
-     console.log(this.urlSig);
-     this.serviciopAjax.petiSigAnt(this.urlSig).subscribe(datos =>{
-       console.log(datos);
-       this.asignarDatos(datos);
-
-     })
-   }
-
-   ant(){
-    console.log(this.urlAnt);
-    this.serviciopAjax.petiSigAnt(this.urlAnt).subscribe(datos =>{
+    console.log(this.urlSig);
+    this.serviciopAjax.petiSigAnt(this.urlSig).subscribe(datos =>{
       console.log(datos);
       this.asignarDatos(datos);
 
     })
   }
 
-   pintarPlanetas(e){
-    e.preventDefault();
-    console.log(e);
+  ant(){
+   console.log(this.urlAnt);
+   this.serviciopAjax.petiSigAnt(this.urlAnt).subscribe(datos =>{
+     console.log(datos);
+     this.asignarDatos(datos);
 
-    
-   }
+   })
+ }
+ 
+ pintarPlanetas(indice:any){
+
+  console.log(indice);
+  console.log(this.urlPlanet[indice].homeworld);
+
+  this.serviciopAjax.petiSigAnt(this.urlPlanet[indice].homeworld).subscribe(datos =>{
+    console.log(datos);
+    if(datos!=null){
+      this.mundo=datos;
+      console.log(this.mundo);
+    }
+  
+  })
+ }
 
   ngOnInit() {
-  }
-
-  private asignarDatos(datos:Object){
-    this.datos = datos;
-    console.log(this.datos);
-    console.log(this.datos.next);
-    this.listPer = this.datos.results; 
-    this.urlSig = this.datos.next;
-    this.urlAnt = this.datos.previous;
   }
 
 }

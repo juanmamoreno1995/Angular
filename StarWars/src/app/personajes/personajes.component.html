@@ -1,29 +1,45 @@
-<h3>Ejemplo de llamada a la API de STAR WARS</h3>
-<table id="personajes" class="estilo_Tabla_1">
-    <caption>Personajes STAR WARS</caption>
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Altura</th>
-            <th>Peso</th>
-            <th>Nacimiento</th>
-            <th>Género</th>
-            <th>Homeworld</th>
-        </tr>
-    </thead>
-    <tbody id="cuerpoPersonajes">
-        <tr *ngFor="let personajes of listPer">
-            <td>{{personajes.name}}</td>
-            <td>{{personajes.height}}</td>
-            <td>{{personajes.mass}}</td>
-            <td>{{personajes.birth_year}}</td>
-            <td>{{personajes.gender}}</td>
-            <td><a href="{{personajes.homeworld}}" (click)="pintarPlanetas($event)">{{personajes.homeworld}}</a></td>
-        </tr>
+<div id="bodyPer">
+    <h3>Ejemplo de llamada a la API de STAR WARS</h3>
+    <br/>
 
-    </tbody>
-</table>
-<div>
-    <button id="btAnterior" (click)="ant()" [disabled]="!(datos && datos.previous)">Anterior</button>
-    <button id="btSiguiente" (click)="sig()" [disabled]="!(datos && datos.next)">Siguiente</button>
+
+    <table id="personajes" class="estilo_Tabla_1">
+        <caption>Personajes STAR WARS</caption>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>Nacimiento</th>
+                <th>Género</th>
+                <th>Homeworld</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoPersonajes">
+            <tr *ngFor="let personajes of listPer;index as i">
+                <td>{{personajes.name}}</td>
+                <td>{{personajes.height}}</td>
+                <td>{{personajes.mass}}</td>
+                <td>{{personajes.birth_year}}</td>
+                <td>{{personajes.gender}}</td>
+                <td><a href="#" (click)="pintarPlanetas(i)">{{personajes.homeworld}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="patras" (click)="ant()" [disabled]="!(datos && datos.previous)">Anterior</button>
+    <button id="palante" (click)="sig()" [disabled]="!(datos && datos.next)">Siguiente</button>
+    <br>
+    <br/>
+    <div id="datosPlaneta" *ngIf="mundo!=null">
+        <strong>Datos del planeta:</strong>
+        <p>Nombre: {{mundo.name}}</p>
+        <p>Periodo de rotación: {{mundo.rotation_period}}</p>
+        <p>Periodo de órbita: {{mundo.orbital_period}}</p>
+        <p>Diámetro: {{mundo.diameter}}</p>
+        <p>Clima: {{mundo.climate}}</p>
+        <p>Gravedad: {{mundo.gravity}}</p>
+        <p>Terreno: {{mundo.terrain}}</p>
+    </div>
+
 </div>

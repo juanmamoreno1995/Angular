@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class PAjaxService {
 
+  
   private urlPersonajes: string = "https://swapi.co/api/people/?format=json";
 
   constructor(private http: HttpClient) { }
@@ -19,4 +20,6 @@ export class PAjaxService {
   petiSigAnt(url:string){
     return this.http.get(url);
   }
+
+  
 }
