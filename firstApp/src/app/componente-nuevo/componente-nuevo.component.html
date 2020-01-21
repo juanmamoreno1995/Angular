@@ -1,0 +1,44 @@
+<p *ngIf="mostrar">
+    Este parrafo se muestra si es verdadero
+</p>
+
+<p>FORMULARIO</p>
+<form>
+    <label>Nombre</label>
+    <input type="text" name="nombre" [(ngModel)]="datos.nombre">
+    <br>
+    <label>Apellidos</label>
+    <input type="text" name="apellidos" [(ngModel)]="datos.apellidos">
+    <br>
+
+    <label>Estatura</label>
+    <input type="number" name="estatura" [(ngModel)]="datos.estatura">
+    <br>
+
+    <label>Fecha nacimiento</label>
+    <input type="date" name="fecha" [(ngModel)]="datos.fecha">
+    <br>
+
+    <button (click)="enviar()">Enviar</button>
+    <button (click)="limpiar()">Limpiar</button>
+    <br>
+
+</form>
+
+<p>Los datos del formulario son: </p>
+<pre>{{datos | json}}</pre>
+
+<p>Select</p>
+
+<select [(ngModel)]="opSel" (ngModelChange)="seleccion($event)">
+    <option *ngFor="let op of opciones" [ngValue]="op">
+       {{op.id}} - {{op.nombre}}
+    </option>
+</select>
+
+<div *ngIf="opSel">
+    <p>
+        Has seleccionado: {{ opSel.nombre }}. Valor: {{ opSel.id }}
+    </p>
+    <pre>{{opSel | json}}</pre>
+</div>

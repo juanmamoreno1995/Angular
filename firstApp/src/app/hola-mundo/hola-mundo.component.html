@@ -1,0 +1,17 @@
+<div class="hola">
+    <h1>{{titulico}}</h1>
+    <h2>Yo un array {{cosicas}}</h2>
+    <ul>
+        <li *ngFor="let esencia of cosicas">
+            {{esencia}}
+        </li>
+    </ul>
+
+    <h2>Otra Forma</h2>
+    <ul>
+        <app-cosas *ngFor="let esencia of cosicas" [nombreCosa]="esencia"></app-cosas>
+    </ul>
+    <ul>
+        <app-cosas *ngFor="let esencia of cosicas" [nombreCosa]="'solo sale una vez'"></app-cosas>
+    </ul>
+</div>
