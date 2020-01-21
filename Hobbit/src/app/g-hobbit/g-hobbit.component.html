@@ -1,0 +1,35 @@
+<ul>
+    <li *ngFor="let hobbit of lista">
+        {{hobbit}}
+    </li>
+</ul>
+
+
+<input type="text" placeholder="Mete nuevo bicho" [(ngModel)]="gHobbit" />
+<button (click)="anhadir()">Añadir hobbit</button>
+
+<br>
+
+<table border="1">
+    <thead>
+
+        <th>Nombre del bicho</th>
+        <th colspan="2">Accion</th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let nombre of lista;index as i">
+            <td>{{nombre}}</td>
+            <td><button (click)="editar(nombre)">Editar</button></td>
+            <td><button (click)="borrar(nombre, i)">Borrar</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+<div id="mod">
+    <input type="text" [(ngModel)]="gHobbit" /><br><br>
+    <button (click)="confirmar()">Confirmar</button>
+    <button (click)="cancelar()">Cancelar</button>
+</div>

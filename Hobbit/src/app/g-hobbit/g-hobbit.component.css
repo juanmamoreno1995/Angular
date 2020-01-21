@@ -1,0 +1,18 @@
+#mod {
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+    position: fixed;
+    top: 180px;
+    left: 180px;
+    background-color: rgb(236, 183, 183);
+    border: 1px solid maroon;
+    color: rgb(199, 43, 43);
+    padding: 3.5em;
+    border-radius: 15px;
+}
+
+.ver {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
