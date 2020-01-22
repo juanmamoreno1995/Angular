@@ -1,0 +1,33 @@
+h3 {
+    color: red;
+}
+
+.formPersonas {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    z-index: 11;
+    background-color: pink;
+    border: 2px solid maroon;
+    border-radius: 15px;
+    padding: 1em;
+    color: red;
+    transition: all 1s;
+}
+
+.formPersonas div label {
+    display: block;
+    margin-top: .5em;
+}
+
+.formPersonas .btn {
+    display: block;
+    margin-top: 1em;
+}
+
+.ver {
+    visibility: visible;
+    opacity: 1;
+}
