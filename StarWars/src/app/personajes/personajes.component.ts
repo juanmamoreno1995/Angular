@@ -7,7 +7,7 @@ import{PAjaxService} from "../p-ajax.service";
   styleUrls: ['./personajes.component.css']
 })
 export class PersonajesComponent implements OnInit {
-
+   
   public datos:any = null;
   public listPer: Object[];
   public datosPlaneta: Object = null;
