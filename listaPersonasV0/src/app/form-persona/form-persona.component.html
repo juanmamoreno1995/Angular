@@ -1,1 +1,16 @@
-<p>form-persona works!</p>
+<div>
+    <label for="dni">DNI</label>
+    <input type="text" [(ngModel)]="dni" size="10" maxlength="9" />
+</div>
+<div>
+    <label for="nombre">Nombre</label>
+    <input type="text" [(ngModel)]="nombre" />
+</div>
+<div>
+    <label for="apellidos">Apellidos</label>
+    <input type="text" size="40" [(ngModel)]="apellidos" />
+</div>
+<div>
+
+    <button type="button" routerLink="/">Cancelar</button>
+</div>

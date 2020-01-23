@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ListadoComponent } from './listado/listado.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormPersonaComponent } from './form-persona/form-persona.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormPersonaComponent } from './form-persona/form-persona.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

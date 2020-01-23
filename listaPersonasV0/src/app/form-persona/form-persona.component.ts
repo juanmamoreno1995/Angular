@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-persona.component.css']
 })
 export class FormPersonaComponent implements OnInit {
+  private dni:string;
+  private nombre:string;
+  private apellidos:string;
+  
 
   constructor() { }
 

@@ -1,3 +1,7 @@
+<p>
+    <a [routerLink]="[ '/personas-add/-1' ]" role="button" routerLinkActive="active">Añadir (Enlace)</a>
+    <button type="button" (click)="irANuevaPersona()">Añadir (Botón)</button>
+</p>
 <table border="1">
     <thead>
         <tr>
@@ -10,12 +14,12 @@
         </tr>
     </thead>
     <tbody id="filas_tabla">
-        <tr *ngFor="let personas of listaPer">
+        <tr *ngFor="let personas of listaPer; index as i">
             <td>{{personas.ID}}</td>
             <td>{{personas.DNI}}</td>
             <td>{{personas.NOMBRE}}</td>
             <td>{{personas.APELLIDOS}}</td>
-            <td><button>Borrar</button></td>
+            <td><button (click)="borrar(i)">Borrar</button></td>
             <td><button>Editar</button></td>
 
         </tr>

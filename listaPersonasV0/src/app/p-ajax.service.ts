@@ -6,8 +6,8 @@ import { stringify } from 'querystring';
   providedIn: 'root'
 })
 export class PAjaxService {
-  private url :string ="http://localhost/ajax/servidor.php";
-
+ // private url :string ="http://localhost/ajax/servidor.php"; //claes
+  private url :string = "http://localhost/ajax/servidor.php"; //casa
   constructor(private http: HttpClient) { }
    listar(){
      var obj = {
@@ -18,6 +18,14 @@ export class PAjaxService {
      //otra forma      return this.http.post(this.url, {"servicio":"listar"});
 
 
+   }
+
+   borrar(id:number){
+     var obj={
+       servicio:"borrar",
+       id:id
+     }
+     return this.http.post(this.url, JSON.stringify(obj));
    }
 
 }
