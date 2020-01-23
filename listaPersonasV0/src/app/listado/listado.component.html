@@ -1,0 +1,23 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>
+            <th>Borrar</th>
+            <th>Editar</th>
+        </tr>
+    </thead>
+    <tbody id="filas_tabla">
+        <tr *ngFor="let personas of listaPer">
+            <td>{{personas.ID}}</td>
+            <td>{{personas.DNI}}</td>
+            <td>{{personas.NOMBRE}}</td>
+            <td>{{personas.APELLIDOS}}</td>
+            <td><button>Borrar</button></td>
+            <td><button>Editar</button></td>
+
+        </tr>
+    </tbody>
+</table>
