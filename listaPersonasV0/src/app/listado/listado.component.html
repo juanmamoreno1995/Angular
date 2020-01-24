@@ -1,5 +1,5 @@
 <p>
-    <a [routerLink]="[ '/personas-add/-1' ]" role="button" routerLinkActive="active">Añadir (Enlace)</a>
+    <a routerLink="/personas-add/-1" role="button" routerLinkActive="active">Añadir (Enlace)</a>
     <button type="button" (click)="irANuevaPersona()">Añadir (Botón)</button>
 </p>
 <table border="1">
@@ -21,7 +21,7 @@
             <td>{{personas.APELLIDOS}}</td>
             <td><button (click)="borrar(i)">Borrar</button></td>
             <td><button>Editar</button></td>
-            <td></td>
+
         </tr>
     </tbody>
 </table>
