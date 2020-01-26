@@ -33,7 +33,11 @@ export class ListadoComponent implements OnInit {
    }
 
    irANuevaPersona(){
-     this.ruta.navigate(['personas-add/-1'])
+     
+    this.ruta.navigate(['personas-add/-1'])
+   }
+   selec(personas:any){
+    this.ruta.navigate(['personas-add/'+personas.ID])
    }
 
   ngOnInit() {

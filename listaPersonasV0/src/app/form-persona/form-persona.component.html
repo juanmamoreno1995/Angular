@@ -1,16 +1,16 @@
 <div>
     <label for="dni">DNI</label>
-    <input type="text" [(ngModel)]="dni" size="10" maxlength="9" />
+    <input type="text" name="dni" [(ngModel)]="dni" size="10" maxlength="9" />
 </div>
 <div>
     <label for="nombre">Nombre</label>
-    <input type="text" [(ngModel)]="nombre" />
+    <input type="text" name="nombre" [(ngModel)]="nombre" />
 </div>
 <div>
     <label for="apellidos">Apellidos</label>
-    <input type="text" size="40" [(ngModel)]="apellidos" />
+    <input type="text" size="40" name="apellidos" [(ngModel)]="apellidos" />
 </div>
 <div>
-
+    <button type="submit" (click)="anhadirOModificar()" routerLink="/">Añadir</button>
     <button type="button" routerLink="/">Cancelar</button>
 </div>

@@ -28,4 +28,36 @@ export class PAjaxService {
      return this.http.post(this.url, JSON.stringify(obj));
    }
 
+   seleccionarPersona(id:any){
+    var obj = {
+      servicio : "selPersonaID",
+      id:id
+    }
+    return this.http.post(this.url, JSON.stringify(obj));
+   }
+
+   anhadir(persona:any, accion:any){
+     if(accion.nombre == "anhadir"){
+      var obj={
+        servicio:"insertar",
+        dni:persona.dni,
+        nombre:persona.nombre,
+        apellidos:persona.apellidos
+      }
+      return this.http.post(this.url, JSON.stringify(obj));
+     }else{
+
+     }
+   }
+   modificar(dni:string, nombre:string, apellidos:string, id:number){
+    var obj={
+      servicio:"modificar",
+      dni:dni,
+      nombre:nombre,
+      apellidos:apellidos,
+      id:id
+    }
+    return this.http.post(this.url, JSON.stringify(obj));
+   }
+
 }
