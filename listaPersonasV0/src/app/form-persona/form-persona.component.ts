@@ -12,14 +12,14 @@ export class FormPersonaComponent implements OnInit {
   private dni: string;
   private nombre: string;
   private apellidos: string;
-  private accion: any = { id: 1, nombre: "anhadir" };
+  private accion: any = { id: -1, nombre: "anhadir" };
 
 
   constructor(private serviciopAjax: PAjaxService, private ruta: Router, private route: ActivatedRoute) {
   }
 
   anhadirOModificar() {
-    if (this.accion.id == 1) {
+    if (this.accion.id == -1) {
         var persona = {
           dni: this.dni,
           nombre: this.nombre,
