@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PAjaxService} from '../p-ajax.service';
 import { Router }from '@angular/router';
+import { Personas } from '../personas';
 
 @Component({
   selector: 'app-listado',
@@ -9,7 +10,7 @@ import { Router }from '@angular/router';
 })
 export class ListadoComponent implements OnInit {
   
-  public listaPer: any;
+  public listaPer: Personas[];
 
   constructor(private serviciopAjax : PAjaxService, private ruta: Router) {
     this.serviciopAjax.listar().subscribe(datos =>{
@@ -18,15 +19,14 @@ export class ListadoComponent implements OnInit {
     })
    }
 
-   pintaPersonas(datos : any){
+   pintaPersonas(datos : Personas[]){
      console.log(datos)
      this.listaPer = datos;
    }
-   borrar(i:number){
-     console.log(this.listaPer[i].NOMBRE);
-     console.log(i)
-     if(confirm("¿Deseas borrar a "+this.listaPer[i].NOMBRE+" "+this.listaPer[i].APELLIDOS)){
-        this.serviciopAjax.borrar(this.listaPer[i].ID).subscribe(datos=>{
+   borrar(personas:Personas){
+     console.log(personas["nombre"]);
+     if(confirm("¿Deseas borrar a "+personas["nombre"]+" "+personas["apellidos"])){
+        this.serviciopAjax.borrar(personas["id"]).subscribe(datos=>{
           this.pintaPersonas(datos);
         })
      }
@@ -37,7 +37,7 @@ export class ListadoComponent implements OnInit {
     this.ruta.navigate(['personas-add/-1'])
    }
    selec(personas:any){
-    this.ruta.navigate(['personas-add/'+personas.ID])
+    this.ruta.navigate(['personas-add/'+personas.id])
    }
 
   ngOnInit() {

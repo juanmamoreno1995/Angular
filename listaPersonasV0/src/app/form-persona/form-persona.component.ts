@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PAjaxService } from '../p-ajax.service';
-//import { Router }from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Personas } from '../personas';
 
 @Component({
   selector: 'app-form-persona',
@@ -9,31 +9,39 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./form-persona.component.css']
 })
 export class FormPersonaComponent implements OnInit {
-  private dni: string;
-  private nombre: string;
-  private apellidos: string;
-  private accion: any = { id: -1, nombre: "anhadir" };
-
+  
+  private accion: any = { id: -1, nombre: "Insertar" };
+ private persona : Personas;
 
   constructor(private serviciopAjax: PAjaxService, private ruta: Router, private route: ActivatedRoute) {
+    this.persona = {
+      id:-1,
+      dni:"",
+      nombre:"",
+      apellidos:""
+    }
   }
 
   anhadirOModificar() {
-    if (this.accion.id == -1) {
-        var persona = {
-          dni: this.dni,
-          nombre: this.nombre,
-          apellidos: this.apellidos
-        }
-        this.serviciopAjax.anhadir(persona, this.accion).subscribe(datos => {
+    var persona = {
+      dni: this.persona.dni,
+      nombre: this.persona.nombre,
+      apellidos: this.persona.apellidos,
+      id:this.accion.id
+    }
 
+    if (this.accion.id == -1) {
+        this.serviciopAjax.anhadir(persona, this.accion).subscribe(datos => {
         })
     }else{
-      this.serviciopAjax.modificar(this.dni, this.nombre, this.apellidos, this.accion.id).subscribe(datos=>{
-
+      this.accion.nombre = "Modificar"
+      this.serviciopAjax.anhadir(persona, this.accion).subscribe(datos=>{
+        console.log(this.accion)
       })
-      this.accion = { id: -1, nombre: "anhadir" }
+      this.accion = { id: -1, nombre: "Insertar" }
     }
+    this.ruta.navigate(['/'])
+
 
   }
 
@@ -46,10 +54,10 @@ export class FormPersonaComponent implements OnInit {
     if (personaID != -1) {
       this.serviciopAjax.seleccionarPersona(personaID).subscribe(datos => {
         console.log(datos);
-        this.dni = datos.DNI;
-        this.nombre = datos.NOMBRE;
-        this.apellidos = datos.APELLIDOS;
-        this.accion = { id: personaID, nombre: "modificar" };
+        this.persona.dni = datos["dni"];
+        this.persona.nombre = datos["nombre"];
+        this.persona.apellidos = datos["apellidos"];
+        this.accion = { id: personaID, nombre: "Modificar" };
       })
     }
   }

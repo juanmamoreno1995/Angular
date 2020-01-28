@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { stringify } from 'querystring';
+import { Personas } from "./personas";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class PAjaxService {
      var obj = {
        servicio:"listar"
      };
-     return this.http.post(this.url, JSON.stringify(obj)); //stringify no hace falta
+     return this.http.post<Personas[]>(this.url, JSON.stringify(obj)); //stringify no hace falta
 
      //otra forma      return this.http.post(this.url, {"servicio":"listar"});
 
@@ -25,7 +25,7 @@ export class PAjaxService {
        servicio:"borrar",
        id:id
      }
-     return this.http.post(this.url, JSON.stringify(obj));
+     return this.http.post<Personas[]>(this.url, JSON.stringify(obj));
    }
 
    seleccionarPersona(id:any){
@@ -33,31 +33,28 @@ export class PAjaxService {
       servicio : "selPersonaID",
       id:id
     }
-    return this.http.post(this.url, JSON.stringify(obj));
+    return this.http.post<Personas>(this.url, JSON.stringify(obj));
    }
 
    anhadir(persona:any, accion:any){
-     if(accion.nombre == "anhadir"){
-      var obj={
+     var obj;
+     if(accion.nombre == "Insertar"){
+      obj={
         servicio:"insertar",
         dni:persona.dni,
         nombre:persona.nombre,
         apellidos:persona.apellidos
       }
-      return this.http.post(this.url, JSON.stringify(obj));
-     }else{
-
+      return this.http.post<Personas[]>(this.url, JSON.stringify(obj));
+     } else{
+      obj={
+        servicio:"modificar",
+        dni:persona.dni,
+        nombre:persona.nombre,
+        apellidos:persona.apellidos,
+        id:accion.id
+      }
+      return this.http.post<Personas[]>(this.url, JSON.stringify(obj));
      }
    }
-   modificar(dni:string, nombre:string, apellidos:string, id:number){
-    var obj={
-      servicio:"modificar",
-      dni:dni,
-      nombre:nombre,
-      apellidos:apellidos,
-      id:id
-    }
-    return this.http.post(this.url, JSON.stringify(obj));
-   }
-
 }
