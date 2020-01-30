@@ -1,0 +1,16 @@
+<p>
+    Esto es {{datos1}}
+</p>
+
+<p> esto es {{arrayDeInicio}}</p>
+
+
+
+<button (click)="llamada()">Pinchame guapo</button>
+
+<p *ngIf="muestraParr">Me muestro porq el muestra parrafo es true al pulsar el botón</p>
+
+<app-pa-borrar [entrada]="'lo que sea'"></app-pa-borrar>
+
+<label>Nombre </label>
+<input type="text" name="nombre" [(ngModel)]="datos1">
