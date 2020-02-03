@@ -1,23 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListadoComponent } from './listado/listado.component';
-import { HttpClientModule } from '@angular/common/http';
 import { FormPersonaComponent } from './form-persona/form-persona.component';
+import { ModificarComponent } from './modificar/modificar.component';
+import {  HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListadoComponent,
-    FormPersonaComponent
+    FormPersonaComponent,
+    ModificarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
+    AppRoutingModule,
     FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormPersonaComponent } from './form-persona/form-persona.component';
 import { ListadoComponent } from './listado/listado.component';
+import { FormPersonaComponent } from './form-persona/form-persona.component';
+import { ModificarComponent } from './modificar/modificar.component';
+
 const routes: Routes = [
-  {
-    path:"personas-add/:id",
-    component: FormPersonaComponent
-  },
-  {
-    path:"",
-    component: ListadoComponent
-  }
+ {
+   path:"",
+   component:ListadoComponent
+ },
+ {
+   path:"anhadir",
+   component:FormPersonaComponent
+ },
+ {
+   path:"modificar/:id",
+   component:ModificarComponent
+ }
 
   // En un momento configuramos las rutas...
 ];

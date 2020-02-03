@@ -1,6 +1,5 @@
 <p>
-    <a class="btn btn-primary  mx-2" routerLink="/personas-add/-1" role="button" routerLinkActive="active">Añadir (Enlace)</a>
-    <button class="btn btn-warning" type="button" (click)="irANuevaPersona()">Añadir (Botón)</button>
+    <a class="btn btn-primary  mx-2" routerLink="anhadir" role="button" routerLinkActive="active">Añadir Persona</a>
 </p>
 <table class="table table-responsive table-hover table-striped">
     <thead class="text-white bg-primary">
@@ -13,14 +12,14 @@
             <th>Editar</th>
         </tr>
     </thead>
-    <tbody id="filas_tabla ">
-        <tr *ngFor="let personas of listaPer;">
-            <td>{{personas.id}}</td>
-            <td>{{personas.dni}}</td>
-            <td>{{personas.nombre}}</td>
-            <td>{{personas.apellidos}}</td>
-            <td><button (click)="borrar(personas) " class="btn btn-primary">Borrar</button></td>
-            <td><button (click)="selec(personas) " class=" btn btn-warning">Editar</button></td>
+    <tbody id="filas_tabla " *ngFor="let p of arrayPersonas">
+        <tr>
+            <td>{{p.id}}</td>
+            <td>{{p.dni}}</td>
+            <td>{{p.nombre}}</td>
+            <td>{{p.apellidos}}</td>
+            <td><button class="btn btn-primary" (click)="borrar(p)">Borrar</button></td>
+            <td><button class=" btn btn-warning" (click)="seleccionar(p)">Editar</button></td>
 
         </tr>
     </tbody>
