@@ -1,0 +1,64 @@
+<h3>Detalle de factura: {{numFac}}</h3>
+<table border=1>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>CANTIDAD</th>
+            <th>CONCEPTO</th>
+            <th>PRECIO</th>
+            <th>TipoIVA</th>
+            <th>IVA</th>
+            <th>TOTAL</th>
+            <th>EDITAR</th>
+            <th>BORRAR</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let fac of detalleFac">
+            <td>{{fac.id}}</td>
+            <td>{{fac.cantidad}}</td>
+            <td>{{fac.concepto}}</td>
+            <td>{{fac.precio}}</td>
+            <td>{{fac.tipo_iva}}</td>
+            <td>{{(fac.precio*fac.cantidad*(fac.tipo_iva/100)) | number}}</td>
+            <td>{{((fac.precio*fac.cantidad*(fac.tipo_iva/100))+fac.cantidad*fac.precio) | number}}</td>
+            <td><button (click)="modificar(fac)">Editar</button></td>
+            <td><button (click)="borrar(fac)">Borrar</button></td>
+
+        </tr>
+    </tbody>
+    <tfoot>
+        <td colspan="5">Totales</td>
+        <td (event)="calcularTotalIva()"></td>
+        <td></td>
+    </tfoot>
+</table>
+
+<div>
+
+    <button type="button" routerLink="/">Volver</button>
+    <button type="button" (click)="abrirForm()">Nuevo Detalle</button>
+
+</div>
+<br><br>
+<div *ngIf="mostrarForm">
+    <form>
+        <fieldset>
+            <legend>{{accion.nombre}}</legend>
+            <label>Cantidad </label>
+            <input type="text" name="cantidad" [(ngModel)]="cantidad"><br>
+            <label>Concepto </label>
+            <input type="text" name="concepto" [(ngModel)]="concepto"><br>
+            <label>Precio </label>
+            <input type="text" name="precio" [(ngModel)]="precio">€<br>
+            <label>Tipo IVA </label>
+            <input type="text" name="tIva" [(ngModel)]="tIva">%<br>
+
+            <button type="button" (click)="anhadirOMod()">{{accion.nombre}}</button>
+            <button type="button" (click)="cerrarForm()">Cancelar</button>
+
+        </fieldset>
+
+    </form>
+</div>

@@ -1,0 +1,21 @@
+<table border=1>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NUMERO</th>
+            <th>CLIENTE</th>
+            <th>FECHA</th>
+
+        </tr>
+    </thead>
+    <tbody *ngFor="let f of arrFacturas">
+        <tr>
+            <td>{{f.id}}</td>
+            <td>
+                <a routerLink="detalle/{{f.id}}/{{f.numero}}" routerLinkActive="active">{{f.numero}}</a>
+            </td>
+            <td>{{f.id_cliente}}</td>
+            <td>{{f.fecha | date}}</td>
+        </tr>
+    </tbody>
+</table>
