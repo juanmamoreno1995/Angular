@@ -16,4 +16,13 @@ export class OwnerService {
 
     return this.http.post<Owners[]>(this.url, param);
   }
+
+  getDetallesOwner(id:number){
+    var param = JSON.stringify({
+      accion:"ObtenerOwnerId",
+      id: id
+    });
+
+    return this.http.post<Owners>(this.url, param);
+  }
 }

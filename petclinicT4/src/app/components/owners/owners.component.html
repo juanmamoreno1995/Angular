@@ -1,4 +1,6 @@
 <h3>Owners</h3>
+<button>Añadir Ownwer</button>
 <ul>
-    <li *ngFor="let ow of arrOwners"><a>{{ow.firstName}}</a></li>
+    <li *ngFor="let ow of arrOwners"><a routerLink="/detalles-owner/{{ow.id}}">{{ow.firstName}} {{ow.lastName}} -- {{ow.city}}</a><button>Borrar</button><button>Modificar</button></li>
+
 </ul>
