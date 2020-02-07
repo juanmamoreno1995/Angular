@@ -1,6 +1,11 @@
-<h3>Owners</h3>
-<button>Añadir Ownwer</button>
-<ul>
-    <li *ngFor="let ow of arrOwners"><a routerLink="/detalles-owner/{{ow.id}}">{{ow.firstName}} {{ow.lastName}} -- {{ow.city}}</a><button>Borrar</button><button>Modificar</button></li>
+<div class="container">
 
-</ul>
+
+    <h3>Owners</h3>
+    <button routerLink="/form" class="btn btn-outline-light text-dark">Añadir Ownwer</button>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let ow of arrOwners"><a routerLink="/detalles-owner/{{ow.id}}">{{ow.firstName}} {{ow.lastName}} -- {{ow.city}}</a><button type="button" class="btn btn-outline-light text-dark">Borrar</button><button type="button" class="btn btn-outline-light text-dark">Modificar</button>
+        </li>
+
+    </ul>
+</div>
