@@ -1,12 +1,12 @@
 <form class="form-horizontal" #owner="ngForm" (ngSubmit)="anhadir(owner.value) ">
     <div class="form-group">
         <label>NOMBRE: </label>
-        <input type="text" class="form-control" required [(ngModel)]="owner.firstname" name="nombre" #nombre="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="owner.firstName" name="nombre" #nombre="ngModel">
 
     </div>
     <div class="form-group">
         <label>APELLIDOS: </label>
-        <input type="text" class="form-control" required [(ngModel)]="owner.lastname" name="apellidos" #apellidos="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="owner.lastName" name="apellidos" #apellidos="ngModel">
 
     </div>
 
