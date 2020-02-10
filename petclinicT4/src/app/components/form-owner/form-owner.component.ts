@@ -20,7 +20,7 @@ export class FormOwnerComponent implements OnInit {
 
   constructor(private servicioOw : OwnerService,private ruta: Router) { 
     this.owner = <Owners>{
-      firstName : "pep",
+      firstName : "",
       lastName: "",
       address:"",
       city:"",
@@ -29,14 +29,8 @@ export class FormOwnerComponent implements OnInit {
   }
 
   anhadir(){
-    var owner = {
-      firstName : this.owner.firstName,
-      lastName: this.owner.lastName,
-      address:this.owner.address,
-      city:this.owner.city,
-      telephone:this.owner.telephone
-    };
-    console.log(owner.firstName);
+   
+    console.log(this.owner.firstName);
     console.log("dentro añadir")
   }
 
