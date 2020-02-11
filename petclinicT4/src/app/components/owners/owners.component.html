@@ -4,7 +4,8 @@
     <h3>Owners</h3>
     <button routerLink="/form" class="btn btn-outline-light text-dark">Añadir Ownwer</button>
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let ow of arrOwners"><a routerLink="/detalles-owner/{{ow.id}}">{{ow.firstName}} {{ow.lastName}} -- {{ow.city}}</a><button type="button" class="btn btn-outline-light text-dark">Borrar</button><button type="button" class="btn btn-outline-light text-dark">Modificar</button>
+        <li class="list-group-item" *ngFor="let ow of arrOwners"><a routerLink="/detalles-owner/{{ow.id}}">{{ow.firstName}} {{ow.lastName}} -- {{ow.city}}</a><button type="button" class="btn btn-outline-light text-dark" (click)="borrar(ow)">Borrar</button><button type="button" class="btn btn-outline-light text-dark"
+                (click)="anhadirOModOwner()">Modificar</button>
         </li>
 
     </ul>

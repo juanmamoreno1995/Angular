@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Owners } from "../../models/owners";
 import { OwnerService } from 'src/app/servicios/owner.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-owners',
@@ -10,8 +11,9 @@ import { OwnerService } from 'src/app/servicios/owner.service';
 export class OwnersComponent implements OnInit {
 
   public arrOwners: Array<Owners>;
+  public accion = {id:"-1", nombre:"anhadir"}
 
-  constructor(private serviceOwner: OwnerService ) { }
+  constructor(private serviceOwner: OwnerService, private ruta: Router ) { }
 
 
    
@@ -20,6 +22,19 @@ export class OwnersComponent implements OnInit {
       console.log(datos);
       this.arrOwners = datos;
     })
+  }
+
+  borrar(ow:Owners){
+    if(confirm(`Deseas borrar a ${ow["firstName"]} ${ow["lastName"]}??`))
+    this.serviceOwner.borrar(ow["id"]).subscribe(datos=>{
+      console.log(datos)
+      this.arrOwners = datos;
+    });
+    
+  }
+
+  modificar(){
+
   }
 
 }

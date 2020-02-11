@@ -25,4 +25,22 @@ export class OwnerService {
 
     return this.http.post<Owners>(this.url, param);
   }
+
+  anhadirOModOwner(owner:Owners){
+    var param = JSON.stringify({
+      accion:"AnadeOwner",
+      owner:owner
+    });
+
+    return this.http.post<any>(this.url, param);
+  }
+
+  borrar(id:number){
+    var param = JSON.stringify({
+      accion:"BorraOwner",
+      id:id,
+      listado: "OK"
+    });
+    return this.http.post<Owners[]>(this.url, param);
+  }
 }

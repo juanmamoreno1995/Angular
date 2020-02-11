@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, COMPILER_OPTIONS } from '@angular/core';
 import { OwnerService } from 'src/app/servicios/owner.service';
 import { Owners } from 'src/app/models/owners';
 import { Router } from '@angular/router';
@@ -11,27 +11,24 @@ import { Router } from '@angular/router';
 export class FormOwnerComponent implements OnInit {
 
 
-  private owner :Owners
-  // private nombre : string;
-  // private apellidos : string;
-  // private direccion : string;
-  // private ciudad : string;
-  // private tel : string;
+  public prop: Owners;
 
-  constructor(private servicioOw : OwnerService,private ruta: Router) { 
-    this.owner = <Owners>{
-      firstName : "",
-      lastName: "",
-      address:"",
-      city:"",
-      telephone:""
-    };
+  constructor(private servicioOw: OwnerService, private ruta: Router) {
+    this.prop = <Owners>{};
+
   }
 
-  anhadir(){
-   
-    console.log(this.owner.firstName);
-    console.log("dentro añadir")
+  anhadir(owner) {
+    this.servicioOw.anhadirOModOwner(owner).subscribe(datos => {
+      console.log(datos)
+      if (datos.result == "OK")
+        alert("Owner añadido con éxito")
+      else alert("Fallo al añadir")
+    });
+    this.ruta.navigate(["/owners"]);
+    console.log("primero", owner);
+    console.log(this.prop);
+    console.log("dentro añadir");
   }
 
   ngOnInit() {

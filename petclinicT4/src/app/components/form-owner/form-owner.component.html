@@ -1,43 +1,55 @@
-<form class="form-horizontal" #owner="ngForm" (ngSubmit)="anhadir(owner.value) ">
+<form class="form-horizontal" #owner="ngForm" (ngSubmit)="anhadir(owner.value)">
     <div class="form-group">
         <label>NOMBRE: </label>
-        <input type="text" class="form-control" required [(ngModel)]="owner.firstName" name="nombre" #nombre="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="prop.firstName" name="firstName" #firstName="ngModel">
 
     </div>
-    <div class="form-group">
+    <div class="form-group ">
         <label>APELLIDOS: </label>
-        <input type="text" class="form-control" required [(ngModel)]="owner.lastName" name="apellidos" #apellidos="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="prop.lastName" name="lastName" #lastName="ngModel">
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group ">
         <label>DIRECCIÓN: </label>
-        <input type="text" class="form-control" required [(ngModel)]="owner.address" name="direc" #direc="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="prop.address" name="address" #address="ngModel">
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group ">
         <label>CIUDAD: </label>
-        <input type="text" class="form-control" required [(ngModel)]="owner.city" name="ciudad" #ciudad="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="prop.city" name="city" #city="ngModel">
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group ">
         <label>TELEFONO: </label>
-        <input type="text" class="form-control" required [(ngModel)]="owner.telephone" name="tel" #tel="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="prop.telephone" name="telephone" #telephone="ngModel">
 
     </div>
+
+    <p>
+        nombre: {{prop.firstName}}
+    </p>
 
 
     <div>
-        <button class="btn btn-primary mr-3" type="submit" (click)="anhadir()" [disabled]="!owner.valid">
+        <button class="btn btn-primary mr-3 ">
             Añadir
         </button>
-        <button type="button" class="btn btn-warning" routerLink="/owners">Cancelar</button>
+
+
+        <button class="btn btn-primary mr-3 " type="submit" [disabled]="!owner.valid">
+            Añadir
+        </button>
+
         <!--
             Si queremos que mantenga los parámetros de la ruta sería así:
-             <button type="button" class="btn btn-primary" routerLink="../">Cancelar</button>
+             <button type="button " class="btn btn-primary " routerLink="../ ">Cancelar</button>
         -->
     </div>
+    <p>
+        nombre: {{prop.firstName}}
+    </p>
 
 </form>
