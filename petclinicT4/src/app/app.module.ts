@@ -11,6 +11,8 @@ import { OwnerDetallesComponent } from './components/owner-detalles/owner-detall
 import { FormOwnerComponent } from './components/form-owner/form-owner.component';
 import { FormsModule } from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { VetDetallesComponent } from './components/vet-detalles/vet-detalles.component';
+import { FormVetsComponent } from './components/form-vets/form-vets.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     OwnersComponent,
     VetsComponent,
     OwnerDetallesComponent,
-    FormOwnerComponent
+    FormOwnerComponent,
+    VetDetallesComponent,
+    FormVetsComponent
   ],
   imports: [
     BrowserModule,

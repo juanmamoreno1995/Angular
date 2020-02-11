@@ -5,6 +5,8 @@ import { VetsComponent } from './components/vets/vets.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { OwnerDetallesComponent } from './components/owner-detalles/owner-detalles.component';
 import { FormOwnerComponent } from './components/form-owner/form-owner.component';
+import { VetDetallesComponent } from './components/vet-detalles/vet-detalles.component';
+import { FormVetsComponent } from './components/form-vets/form-vets.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,14 @@ const routes: Routes = [
   {
     path: "form/:id",
     component: FormOwnerComponent
+  },
+  {
+    path:"detalles-vets/:id",
+    component: VetDetallesComponent
+  },
+  {
+    path:"form-vet/:id",
+    component:FormVetsComponent
   }
 
 ];
