@@ -27,20 +27,14 @@
         <input type="text" class="form-control" required [(ngModel)]="prop.telephone" name="telephone" #telephone="ngModel">
 
     </div>
-
-    <p>
-        nombre: {{prop.firstName}}
-    </p>
-
-
     <div>
-        <button class="btn btn-primary mr-3 ">
-            Añadir
-        </button>
-
 
         <button class="btn btn-primary mr-3 " type="submit" [disabled]="!owner.valid">
             Añadir
+        </button>
+
+        <button class="btn btn-primary mr-3 " type="button" routerLink="/owners">
+            Cancelar
         </button>
 
         <!--
@@ -48,8 +42,5 @@
              <button type="button " class="btn btn-primary " routerLink="../ ">Cancelar</button>
         -->
     </div>
-    <p>
-        nombre: {{prop.firstName}}
-    </p>
 
 </form>

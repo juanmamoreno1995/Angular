@@ -6,39 +6,50 @@ import { Owners } from '../models/owners';
   providedIn: 'root'
 })
 export class OwnerService {
-   private url = "http://localhost/ajax/petClinic/API/petclinic/servicios.php";
-  constructor( private http: HttpClient) { }
+  private url = "http://localhost/ajax/petClinic/API/petclinic/servicios.php";
+  constructor(private http: HttpClient) { }
 
-  getOwners(){
+  getOwners() {
     var param = JSON.stringify({
-      accion:"ListarOwners"
+      accion: "ListarOwners"
     });
 
     return this.http.post<Owners[]>(this.url, param);
   }
 
-  getDetallesOwner(id:number){
+  getDetallesOwner(id: number) {
     var param = JSON.stringify({
-      accion:"ObtenerOwnerId",
+      accion: "ObtenerOwnerId",
       id: id
     });
 
     return this.http.post<Owners>(this.url, param);
   }
 
-  anhadirOModOwner(owner:Owners){
-    var param = JSON.stringify({
-      accion:"AnadeOwner",
-      owner:owner
-    });
+  anhadirOModOwner(owner: Owners) {
+    if (owner.id == -1) {
 
-    return this.http.post<any>(this.url, param);
+      var param = JSON.stringify({
+        accion: "AnadeOwner",
+        owner: owner
+      });
+
+      return this.http.post<any>(this.url, param);
+    }else {
+      var param = JSON.stringify({
+        accion: "ModificaOwner",
+        owner: owner
+      });
+
+      return this.http.post<any>(this.url, param);
+    }
+
   }
 
-  borrar(id:number){
+  borrar(id: number) {
     var param = JSON.stringify({
-      accion:"BorraOwner",
-      id:id,
+      accion: "BorraOwner",
+      id: id,
       listado: "OK"
     });
     return this.http.post<Owners[]>(this.url, param);

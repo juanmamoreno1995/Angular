@@ -24,14 +24,6 @@ export class OwnersComponent implements OnInit {
     })
   }
 
-  borrar(ow:Owners){
-    if(confirm(`Deseas borrar a ${ow["firstName"]} ${ow["lastName"]}??`))
-    this.serviceOwner.borrar(ow["id"]).subscribe(datos=>{
-      console.log(datos)
-      this.arrOwners = datos;
-    });
-    
-  }
 
   modificar(){
 

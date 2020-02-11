@@ -24,10 +24,12 @@ const routes: Routes = [
     path: "vets",
     component: VetsComponent
   },
+  
   {
-    path: "form",
+    path: "form/:id",
     component: FormOwnerComponent
   }
+
 ];
 
 @NgModule({

@@ -16,5 +16,15 @@ export class AppComponent {
     }
   }
 
+  abrirOw(){
+    console.log("dentro de abrir ow");
+    this.navBar.owners.dropdown = !this.navBar.owners.dropdown;
+    this.navBar.vets.dropdown = true;
+  }
+
+  abrirVet(){
+    this.navBar.vets.dropdown = !this.navBar.vets.dropdown;
+    this.navBar.owners.dropdown = true;
+  }
 
 }

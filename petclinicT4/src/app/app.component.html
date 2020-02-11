@@ -8,24 +8,24 @@
             <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio <span class="sr-only">(current)</span></a>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.owners.dropdown = !navBar.owners.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="abrirOw()" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Owners
 						</a>
                 <div [ngbCollapse]="navBar.owners.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" routerLink="/owners" routerLinkActive="active" (click)="navBar.owners.dropdown = !navBar.owners.dropdown">
+                    <a class="dropdown-item" routerLink="/owners" routerLinkActive="active" (click)="abrirOw()">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Todos</span></a>
-                    <a class="dropdown-item" routerLink="/form" routerLinkActive="active" (click)="navBar.owners.dropdown = !navBar.owners.dropdown">Añadir nuevo</a>
+                    <a class="dropdown-item" routerLink="/form/-1" routerLinkActive="active" (click)="abrirOw()">Añadir nuevo</a>
                 </div>
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.vets.dropdown = !navBar.vets.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="abrirVet()" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Vets
 						</a>
                 <div [ngbCollapse]="navBar.vets.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" routerLink="/vets" routerLinkActive="active" (click)="navBar.vets.dropdown = !navBar.vets.dropdown">
+                    <a class="dropdown-item" routerLink="/vets" routerLinkActive="active" (click)="abrirVet()">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Todos</span></a>
-                    <a class="dropdown-item" routerLink="/" routerLinkActive="active" (click)="navBar.vets.dropdown = !navBar.vets.dropdown">Añadir nuevo</a>
+                    <a class="dropdown-item" routerLink="/" routerLinkActive="active" (click)="abrirVet()">Añadir nuevo</a>
                 </div>
             </li>
 

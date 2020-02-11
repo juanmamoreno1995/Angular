@@ -1,4 +1,11 @@
-<h3>Vets</h3>
-<ul>
-    <li *ngFor="let vet of arrVets"><a>{{vet.firstName}} {{vet.lastName}} </a></li>
-</ul>
+<div class="container">
+
+
+    <h3>Vets</h3>
+    <button routerLink="/form-vet/-1" class="btn btn-outline-light text-dark">Añadir Vet</button>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let vet of arrVets"><a routerLink="/detalles-vets/{{vet.id}}">{{vet.firstName}} {{vet.lastName}}</a>
+        </li>
+
+    </ul>
+</div>
