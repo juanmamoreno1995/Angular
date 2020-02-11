@@ -10,6 +10,7 @@ import { VetsComponent } from './components/vets/vets.component';
 import { OwnerDetallesComponent } from './components/owner-detalles/owner-detalles.component';
 import { FormOwnerComponent } from './components/form-owner/form-owner.component';
 import { FormsModule } from "@angular/forms";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'petclinicT4';
+  public navBar = {
+    isNavbarCollapsed: true,
+    owners: {
+      dropdown:true
+    },
+    vets:{
+      dropdown: true
+    }
+  }
+
+
 }
