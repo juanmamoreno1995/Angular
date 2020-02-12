@@ -13,6 +13,7 @@ import { FormsModule } from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { VetDetallesComponent } from './components/vet-detalles/vet-detalles.component';
 import { FormVetsComponent } from './components/form-vets/form-vets.component';
+import { PetAddComponent } from './components/pet-add/pet-add.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormVetsComponent } from './components/form-vets/form-vets.component';
     OwnerDetallesComponent,
     FormOwnerComponent,
     VetDetallesComponent,
-    FormVetsComponent
+    FormVetsComponent,
+    PetAddComponent
   ],
   imports: [
     BrowserModule,

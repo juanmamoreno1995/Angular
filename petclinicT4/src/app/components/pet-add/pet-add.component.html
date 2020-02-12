@@ -1,0 +1,41 @@
+<form class="form-horizontal" #pet="ngForm" (ngSubmit)="anhadir(pet.value)">
+    <div class="form-group">
+        <label>Owner: </label>
+        <input type="text" class="form-control" value="{{owner.firstName}} {{owner.lastName}}" name="firstName" readonly>
+
+    </div>
+    <div class="form-group ">
+        <label>Name: </label>
+        <input type="text" class="form-control" required [(ngModel)]="mascota.name" name="name" #nombre="ngModel">
+
+    </div>
+
+    <div class="form-group ">
+        <label>Cumpleaños Infeliz: </label>
+        <input type="date" class="form-control" required [(ngModel)]="mascota.birth_date" name="birth" #birth="ngModel">
+
+    </div>
+
+    <div class="form-group ">
+        <select #type="ngModel" name="type" [(ngModel)]="mascota.type">
+            <option *ngFor="let tp of arrType" [ngValue]="tp"> {{tp.name}}</option> <!-- value="{{tp.id}}"  Es lo mismo que el [ngValue]="type" se pasa el objeto entero-->
+        </select>
+    </div>
+
+    <div>
+
+        <button class="btn btn-primary mr-3 " type="submit" [disabled]="!pet.valid">
+            Añadir
+        </button>
+
+        <button class="btn btn-primary mr-3 " type="button" routerLink="/owners">
+            Cancelar
+        </button>
+
+        <!--
+            Si queremos que mantenga los parámetros de la ruta sería así:
+             <button type="button " class="btn btn-primary " routerLink="../ ">Cancelar</button>
+        -->
+    </div>
+
+</form>

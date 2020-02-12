@@ -30,6 +30,10 @@ export class OwnerDetallesComponent implements OnInit {
     
   }
 
+  anhadirPet(owner:Owners){
+    this.ruta.navigate(["add-pet/"+owner.id]);
+  }
+
   ngOnInit() {
    var idOwner
     idOwner = this.parametro.snapshot.params["id"];
