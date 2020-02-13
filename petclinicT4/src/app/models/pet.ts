@@ -5,7 +5,7 @@ import { Pettype } from "./pettype";
 export class Pet {
     id: number;
     name: string;
-    birth_date: Date;
+    birthDate: Date;
     type: Pettype;
     owner: Owners;
     visits: Visits[];

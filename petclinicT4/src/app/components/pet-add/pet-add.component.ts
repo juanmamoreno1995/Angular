@@ -5,6 +5,7 @@ import { Owners } from 'src/app/models/owners';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PetTypesService } from 'src/app/servicios/pet-types.service';
 import { Pettype } from 'src/app/models/pettype';
+import { PetService } from 'src/app/servicios/pet.service';
 
 @Component({
   selector: 'app-pet-add',
@@ -15,25 +16,36 @@ export class PetAddComponent implements OnInit {
   private mascota: Pet;
   private owner: Owners;
   private arrType: Pettype[];
-  constructor(private servOw : OwnerService, private parametro: ActivatedRoute, private ruta: Router, private serPet:PetTypesService) {
+  private idOwner: number;
+  constructor(private servOw: OwnerService, private parametro: ActivatedRoute, private ruta: Router, private serPety: PetTypesService, private serPet: PetService) {
     this.mascota = <Pet>{};
     this.owner = <Owners>{}
-   }
+  }
 
   ngOnInit() {
-    var idOwner = this.parametro.snapshot.params["idOw"];
-    this.servOw.getDetallesOwner(idOwner).subscribe(datos=>{
+    this.idOwner = this.parametro.snapshot.params["idOw"];
+    this.servOw.getDetallesOwner(this.idOwner).subscribe(datos => {
       this.owner = datos;
     });
 
-    this.serPet.getType().subscribe(
-      datos=>this.arrType = datos,
-      error=>console.log(error)
+    this.serPety.getType().subscribe(
+      datos => this.arrType = datos,
+      error => console.log(error)
     )
   }
 
-  anhadir(){
-    
+  anhadir(pet) {
+    this.mascota.owner = this.owner;
+    console.log(this.mascota)
+
+    this.serPet.addType(this.mascota).subscribe(datos => {
+     console.log(datos);
+      if (datos.result == "OK")
+        alert("Mascota añadida con éxito")
+      else alert("Error al añadir")
+
+      this.ruta.navigate(["/detalles-owner/"+this.idOwner])
+    });
   }
 
 }

@@ -25,4 +25,6 @@ export class PetTypesService {
 
     return this.http.post<Pettype>(this.url, param);
   }
+
+  
 }

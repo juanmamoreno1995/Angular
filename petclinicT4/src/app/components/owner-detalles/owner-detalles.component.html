@@ -34,3 +34,5 @@
 <button type="button" class="btn btn-outline-light text-dark" (click)="anhadirPet(owner)">Añadir pet</button>
 
 <button type="button" class="btn btn-primary" routerLink="/owners">Volver</button>
+
+<app-pet-detalles *ngIf="owner.pets" [owner]="owner"></app-pet-detalles>
