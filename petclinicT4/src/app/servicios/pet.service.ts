@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pet } from '../models/pet';
+import { Owners } from '../models/owners';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,30 @@ export class PetService {
 
   constructor(private http: HttpClient) { }
 
-  addType(pet: Pet){
+  listarPets(id : number) {
+    var param = JSON.stringify({
+      accion: "ListarPetsOwnerId",
+      id: id
+    });
+
+    return this.http.post<Pet[]>(this.url, param);
+  }
+
+  addType(pet: Pet) {
     var param = JSON.stringify({
       accion: "AnadePet",
       pet: pet
     });
 
     return this.http.post<any>(this.url, param);
+  }
+
+  obtenerPets(id:number){
+    var param = JSON.stringify({
+      accion: "ObtenerOwnerId_Pets",
+      id: id
+    });
+
+    return this.http.post<Owners>(this.url, param);
   }
 }

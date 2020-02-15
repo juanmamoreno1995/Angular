@@ -24,10 +24,6 @@
         <th>TELEFONO</th>
         <td>{{owner.telephone}}</td>
     </tr>
-    <tr>
-        <th>MASCOTAS</th>
-        <td>{{owner.pets}}</td>
-    </tr>
 </table>
 <button type="button" class="btn btn-outline-light text-dark" (click)="borrar(owner)">Borrar</button>
 <button type="button" class="btn btn-outline-light text-dark" (click)="modificar(owner)">Modificar</button>
@@ -35,4 +31,7 @@
 
 <button type="button" class="btn btn-primary" routerLink="/owners">Volver</button>
 
-<app-pet-detalles *ngIf="owner.pets" [owner]="owner"></app-pet-detalles>
+<div *ngIf="owner.pets">
+    <h2 class="mt-5">Pets and Visits</h2>
+    <app-pet-detalles [pet]="pt" *ngFor="let pt of owner.pets"></app-pet-detalles>
+</div>
