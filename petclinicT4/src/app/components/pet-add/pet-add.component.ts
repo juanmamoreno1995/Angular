@@ -17,9 +17,12 @@ export class PetAddComponent implements OnInit {
   private owner: Owners;
   private arrType: Pettype[];
   private idOwner: number;
+  private idPet: number;
+  private texto: string = "Añadir";
   constructor(private servOw: OwnerService, private parametro: ActivatedRoute, private ruta: Router, private serPety: PetTypesService, private serPet: PetService) {
     this.mascota = <Pet>{};
     this.owner = <Owners>{}
+
   }
 
   ngOnInit() {
@@ -31,21 +34,42 @@ export class PetAddComponent implements OnInit {
     this.serPety.getType().subscribe(
       datos => this.arrType = datos,
       error => console.log(error)
-    )
+    );
+
+    this.idPet = this.parametro.snapshot.params["idPet"];
+    console.log(this.idPet);
+    if (this.idPet != -1)
+      this.serPet.unPet(this.idPet).subscribe(datos => {
+        this.mascota = datos;
+        this.texto = "Modificar"
+      });
+
   }
 
   anhadir(pet) {
     this.mascota.owner = this.owner;
     console.log(this.mascota)
+    if (this.idPet == -1) {
+     
+      this.serPet.addType(this.mascota).subscribe(datos => {
+        console.log(datos);
+        if (datos.result == "OK")
+          alert("Mascota añadida con éxito")
+        else alert("Error al añadir")
 
-    this.serPet.addType(this.mascota).subscribe(datos => {
-     console.log(datos);
-      if (datos.result == "OK")
-        alert("Mascota añadida con éxito")
-      else alert("Error al añadir")
+        this.ruta.navigate(["/detalles-owner/" + this.idOwner])
+      });
+    } else {
+      
+      this.serPet.modificarPet(this.mascota).subscribe(datos => {
+        console.log(datos);
+        if (datos.result == "OK")
+          alert("Mascota modificada con éxito")
+        else alert("Error al modificar")
 
-      this.ruta.navigate(["/detalles-owner/"+this.idOwner])
-    });
+        this.ruta.navigate(["/detalles-owner/" + this.idOwner])
+      });
+    }
   }
 
 }

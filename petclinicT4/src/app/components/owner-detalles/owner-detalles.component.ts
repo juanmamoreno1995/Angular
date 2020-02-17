@@ -32,7 +32,7 @@ export class OwnerDetallesComponent implements OnInit {
   }
 
   anhadirPet(owner: Owners) {
-    this.ruta.navigate(["add-pet/" + owner.id]);
+    this.ruta.navigate(["add-pet/"+"-1/"+owner.id]);
   }
 
   ngOnInit() {

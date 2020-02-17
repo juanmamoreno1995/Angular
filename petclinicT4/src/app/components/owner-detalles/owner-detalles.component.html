@@ -33,5 +33,5 @@
 
 <div *ngIf="owner.pets">
     <h2 class="mt-5">Pets and Visits</h2>
-    <app-pet-detalles [pet]="pt" *ngFor="let pt of owner.pets"></app-pet-detalles>
+    <app-pet-detalles [owner]="owner" [pet]="pt" *ngFor="let pt of owner.pets"></app-pet-detalles>
 </div>

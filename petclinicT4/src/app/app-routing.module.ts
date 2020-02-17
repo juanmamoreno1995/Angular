@@ -40,8 +40,9 @@ const routes: Routes = [
     path:"form-vet/:id",
     component:FormVetsComponent
   },
+
   {
-    path:"add-pet/:idOw",
+    path:"add-pet/:idPet/:idOw",
     component:PetAddComponent
   }
 

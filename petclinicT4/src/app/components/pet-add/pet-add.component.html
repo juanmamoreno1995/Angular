@@ -25,10 +25,10 @@
     <div>
 
         <button class="btn btn-primary mr-3 " type="submit" [disabled]="!pet.valid">
-            Añadir
+            {{texto}}
         </button>
 
-        <button class="btn btn-primary mr-3 " type="button" routerLink="/owners">
+        <button class="btn btn-primary mr-3 " type="button" routerLink="/detalles-owner/{{owner.id}}">
             Cancelar
         </button>
 

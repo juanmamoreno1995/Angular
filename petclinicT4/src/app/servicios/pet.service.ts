@@ -11,7 +11,7 @@ export class PetService {
 
   constructor(private http: HttpClient) { }
 
-  listarPets(id : number) {
+  listarPets(id: number) {
     var param = JSON.stringify({
       accion: "ListarPetsOwnerId",
       id: id
@@ -29,12 +29,39 @@ export class PetService {
     return this.http.post<any>(this.url, param);
   }
 
-  obtenerPets(id:number){
+  obtenerPets(id: number) {
     var param = JSON.stringify({
       accion: "ObtenerOwnerId_Pets",
       id: id
     });
 
     return this.http.post<Owners>(this.url, param);
+  }
+
+  borrarPets(id: number) {
+    var param = JSON.stringify({
+      accion: "BorraPet",
+      id: id
+    });
+
+    return this.http.post<any>(this.url, param);
+  }
+
+  unPet(id: number) {
+    var param = JSON.stringify({
+      accion: "ObtenerPetId",
+      id: id
+    });
+
+    return this.http.post<Pet>(this.url, param);
+  }
+
+  modificarPet(pet:Pet){
+    var param = JSON.stringify({
+      accion: "ModificaPet",
+      pet: pet
+    });
+
+    return this.http.post<any>(this.url, param);
   }
 }
