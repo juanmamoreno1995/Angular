@@ -16,4 +16,13 @@ export class VetService {
 
     return this.http.post<Vet[]>(this.url, param);
   }
+
+  obtenerVetid(id:number){
+    var param = JSON.stringify({
+      accion:"ObtenerVetId",
+      id:id
+    });
+
+    return this.http.post<Vet>(this.url, param);
+  }
 }

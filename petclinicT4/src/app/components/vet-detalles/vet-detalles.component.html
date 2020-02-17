@@ -1,1 +1,19 @@
-<p>vet-detalles works!</p>
+<h3 class="bg-dark text-light">Detalles Owner</h3>
+<table class="table table-bordered ">
+    <tr>
+        <th>ID</th>
+        <td>{{vete.id}}</td>
+    </tr>
+    <tr>
+        <th>NOMBRE</th>
+        <td>{{vete.firstName}}</td>
+    </tr>
+    <tr>
+        <th>APELLIDOS</th>
+        <td>{{vete.lastName}}</td>
+    </tr>
+</table>
+<button type="button" class="btn btn-outline-light text-dark" (click)="borrar(owner)">Borrar</button>
+<button type="button" class="btn btn-outline-light text-dark" (click)="modificar(owner)">Modificar</button>
+
+<button type="button" class="btn btn-primary" routerLink="/vets">Volver</button>
