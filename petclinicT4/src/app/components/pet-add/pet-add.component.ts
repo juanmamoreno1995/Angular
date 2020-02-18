@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PetTypesService } from 'src/app/servicios/pet-types.service';
 import { Pettype } from 'src/app/models/pettype';
 import { PetService } from 'src/app/servicios/pet.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pet-add',
@@ -32,8 +33,10 @@ export class PetAddComponent implements OnInit {
     });
 
     this.serPety.getType().subscribe(
-      datos => this.arrType = datos,
-      error => console.log(error)
+      datos => {
+        this.arrType = datos
+        
+      }
     );
 
     this.idPet = this.parametro.snapshot.params["idPet"];
@@ -41,6 +44,7 @@ export class PetAddComponent implements OnInit {
     if (this.idPet != -1)
       this.serPet.unPet(this.idPet).subscribe(datos => {
         this.mascota = datos;
+        this.mascota.type = environment.seleccionaObj(this.arrType, this.mascota.type);
         this.texto = "Modificar"
       });
 
@@ -50,7 +54,7 @@ export class PetAddComponent implements OnInit {
     this.mascota.owner = this.owner;
     console.log(this.mascota)
     if (this.idPet == -1) {
-     
+
       this.serPet.addType(this.mascota).subscribe(datos => {
         console.log(datos);
         if (datos.result == "OK")
@@ -60,7 +64,7 @@ export class PetAddComponent implements OnInit {
         this.ruta.navigate(["/detalles-owner/" + this.idOwner])
       });
     } else {
-      
+
       this.serPet.modificarPet(this.mascota).subscribe(datos => {
         console.log(datos);
         if (datos.result == "OK")
