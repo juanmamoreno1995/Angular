@@ -15,6 +15,9 @@ import { VetDetallesComponent } from './components/vet-detalles/vet-detalles.com
 import { FormVetsComponent } from './components/form-vets/form-vets.component';
 import { PetAddComponent } from './components/pet-add/pet-add.component';
 import { PetDetallesComponent } from './components/pet-detalles/pet-detalles.component';
+//prime ng
+import {AccordionModule} from 'primeng/accordion';     
+import {MenuItem} from 'primeng/api';        
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { PetDetallesComponent } from './components/pet-detalles/pet-detalles.com
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    AccordionModule,
+    MenuItem
   ],
   providers: [],
   bootstrap: [AppComponent]
