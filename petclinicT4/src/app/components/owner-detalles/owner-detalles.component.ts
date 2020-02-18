@@ -31,8 +31,20 @@ export class OwnerDetallesComponent implements OnInit {
 
   }
 
+  actualizaPet(datos) {
+    console.log(datos);
+    if (datos.result == "OK") {
+      alert("Mascota borrada con éxito")
+      this.servPet.obtenerPets(this.owner.id).subscribe(
+        datos => this.owner = datos,
+        error => console.log(error)
+
+      )
+    }
+  }
+
   anhadirPet(owner: Owners) {
-    this.ruta.navigate(["add-pet/"+"-1/"+owner.id]);
+    this.ruta.navigate(["add-pet/" + "-1/" + owner.id]);
   }
 
   ngOnInit() {
@@ -43,7 +55,7 @@ export class OwnerDetallesComponent implements OnInit {
     // this.servicioOwner.getDetallesOwner(idOwner).subscribe(datos=>{
     //   this.owner = datos;
     // });
-    
+
     //para tener los pets como array
 
     this.servPet.obtenerPets(idOwner).subscribe(datos => {

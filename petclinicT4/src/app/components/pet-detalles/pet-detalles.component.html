@@ -1,20 +1,26 @@
-<div class="container">
-    <table class="table">
-        <tr>
-            <th>Nombre</th>
-            <td>{{pet.name}}</td>
-        </tr>
-        <tr>
-            <th>Fecha de Nacimiento</th>
-            <td>{{pet.birthDate}}</td>
-        </tr>
-        <tr>
-            <th>Tipo</th>
-            <td>{{pet.typeName}}</td>
-        </tr>
-        <tr>
-            <td><button (click)="borrarPet(pet) " class="btn btn-primary">Borrar</button>
-                <button (click)="modPet(pet) " class="btn btn-primary">Modificar</button></td>
-        </tr>
-    </table>
+<div class="row">
+    <div class="col-6">
+        <table class="table">
+            <tr>
+                <th>Nombre</th>
+                <td>{{pet.name}}</td>
+            </tr>
+            <tr>
+                <th>Fecha de Nacimiento</th>
+                <td>{{pet.birthDate}}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{pet.typeName}}</td>
+            </tr>
+            <tr>
+                <td><button (click)="borrarPet(pet) " class="btn btn-primary">Borrar</button>
+                    <button (click)="modPet(pet) " class="btn btn-primary">Modificar</button></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-6">
+        <!-- meter etiqueta de visitas -->
+        </table>
+    </div>
 </div>

@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Pet } from 'src/app/models/pet';
 import { Owners } from 'src/app/models/owners';
 import { PetService } from 'src/app/servicios/pet.service';
 import { OwnerService } from 'src/app/servicios/owner.service';
+
 
 @Component({
   selector: 'app-pet-detalles',
@@ -17,6 +18,8 @@ export class PetDetallesComponent implements OnInit {
   @Input() pet: Pet;
   @Input() owner: Owners;
 
+  @Output() eliminado = new EventEmitter()
+
   ngOnInit() {
     console.log(this.owner)
   }
@@ -25,18 +28,14 @@ export class PetDetallesComponent implements OnInit {
     console.log(pet);
     if (confirm(`¿Deseas borrar la mascota ${pet.name}?`)) {
       this.servPet.borrarPets(pet.id).subscribe(datos => {
-        if (datos.result == "OK"){
-          alert("Mascota borrada con éxito")
-          this.ruta.navigate(["detalles-owner/"+this.owner.id]);
-        }
-        else alert("Error al borrar mascota")
+        this.eliminado.emit(datos);
       });
-      
+
     }
   }
 
-  modPet(pet:Pet){
-    this.ruta.navigate(["add-pet/"+pet.id+"/"+this.owner.id]);
+  modPet(pet: Pet) {
+    this.ruta.navigate(["add-pet/" + pet.id + "/" + this.owner.id]);
   }
 
 }
