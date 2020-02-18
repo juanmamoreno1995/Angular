@@ -17,7 +17,6 @@ import { PetAddComponent } from './components/pet-add/pet-add.component';
 import { PetDetallesComponent } from './components/pet-detalles/pet-detalles.component';
 //prime ng
 import {AccordionModule} from 'primeng/accordion';     
-import {MenuItem} from 'primeng/api';        
 
 @NgModule({
   declarations: [
@@ -39,7 +38,7 @@ import {MenuItem} from 'primeng/api';
     FormsModule,
     NgbModule,
     AccordionModule,
-    MenuItem
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
