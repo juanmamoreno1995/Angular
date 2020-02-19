@@ -38,4 +38,8 @@ export class PetDetallesComponent implements OnInit {
     this.ruta.navigate(["add-pet/" + pet.id + "/" + this.owner.id]);
   }
 
+  addVisit(pet : Pet){
+    this.ruta.navigate(["add-visit/"+pet.id])
+  }
+
 }

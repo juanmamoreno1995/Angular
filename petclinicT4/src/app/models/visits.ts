@@ -1,6 +1,6 @@
 export class Visits {
     id: number;
-    pet_id: number;
-    visit_date: Date;
+    petId: number;
+    visitDate: Date;
     description: string;
 }

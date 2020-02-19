@@ -1,0 +1,20 @@
+<table [hidden]="no_visits" class=" table table-condensed">
+    <thead>
+        <tr>
+            <th>Fecha Visita</th>
+            <th>Descripción</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+
+    <tr *ngFor="let visit of visits">
+        <td>{{visit.visitDate |date:"dd-MM-yyyy"}}</td>
+        <td>{{visit.description}}</td>
+        <td>
+            <a routerLink="/visit-mod/{{visit.id}}" routerLinkActive="active">
+                <button class="btn btn-primary mx-4" type="button">Modificar</button>
+            </a>
+            <button class="btn btn-danger " (click)="deleteVisit(visit)">Borrar</button>
+        </td>
+    </tr>
+</table>

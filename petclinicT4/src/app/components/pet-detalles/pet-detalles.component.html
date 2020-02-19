@@ -14,13 +14,14 @@
                 <td>{{pet.typeName}}</td>
             </tr>
             <tr>
-                <td><button (click)="borrarPet(pet) " class="btn btn-primary">Borrar</button>
-                    <button (click)="modPet(pet) " class="btn btn-primary">Modificar</button></td>
+                <td><button (click)="borrarPet(pet) " class="btn btn-danger mx-4">Borrar</button>
+                    <button (click)="modPet(pet) " class="btn btn-primary  mx-4">Modificar</button>
+                    <button (click)="addVisit(pet) " class="btn btn-primary">Añadir Visita</button></td>
             </tr>
         </table>
     </div>
     <div class="col-6">
-        <!-- meter etiqueta de visitas -->
+        <app-visit-list [visits]="pet.visits"></app-visit-list>
 
     </div>
 </div>

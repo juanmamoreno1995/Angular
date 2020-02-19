@@ -16,7 +16,9 @@ import { FormVetsComponent } from './components/form-vets/form-vets.component';
 import { PetAddComponent } from './components/pet-add/pet-add.component';
 import { PetDetallesComponent } from './components/pet-detalles/pet-detalles.component';
 //prime ng
-import {AccordionModule} from 'primeng/accordion';     
+import {AccordionModule} from 'primeng/accordion';
+import { VisitListComponent } from './visit-list/visit-list.component';
+import { FormVisitComponent } from './form-visit/form-visit.component';     
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {AccordionModule} from 'primeng/accordion';
     VetDetallesComponent,
     FormVetsComponent,
     PetAddComponent,
-    PetDetallesComponent
+    PetDetallesComponent,
+    VisitListComponent,
+    FormVisitComponent
   ],
   imports: [
     BrowserModule,
