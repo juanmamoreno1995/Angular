@@ -21,7 +21,7 @@
         </table>
     </div>
     <div class="col-6">
-        <app-visit-list [visits]="pet.visits"></app-visit-list>
+        <app-visit-list [visits]="pet.visits" (eliminado)="actualizarVisitas($event)"></app-visit-list>
 
     </div>
 </div>

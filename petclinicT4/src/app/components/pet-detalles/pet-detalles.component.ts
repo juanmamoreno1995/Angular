@@ -5,6 +5,8 @@ import { Pet } from 'src/app/models/pet';
 import { Owners } from 'src/app/models/owners';
 import { PetService } from 'src/app/servicios/pet.service';
 import { OwnerService } from 'src/app/servicios/owner.service';
+import { VisitService } from 'src/app/servicios/visit.service';
+import { DatosService } from 'src/app/servicios/datos.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ import { OwnerService } from 'src/app/servicios/owner.service';
 })
 export class PetDetallesComponent implements OnInit {
   private arrPet: Pet[];
-  constructor(private http: HttpClient, private ruta: Router, private parametro: ActivatedRoute, private servPet: PetService) { }
+  constructor(private http: HttpClient, private ruta: Router, private parametro: ActivatedRoute, private servPet: PetService,private serVi: VisitService, private datosV : DatosService) { }
   @Input() pet: Pet;
   @Input() owner: Owners;
 
@@ -40,6 +42,14 @@ export class PetDetallesComponent implements OnInit {
 
   addVisit(pet : Pet){
     this.ruta.navigate(["add-visit/"+pet.id])
+  }
+
+  actualizarVisitas(datos){
+    if (datos.result == "OK")
+          alert("Visita borrada")
+        else alert("Fallo al borrar")
+    this.pet.visits= this.datosV.leerDatos;
+       
   }
 
 }

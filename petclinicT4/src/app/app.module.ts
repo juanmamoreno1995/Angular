@@ -17,8 +17,8 @@ import { PetAddComponent } from './components/pet-add/pet-add.component';
 import { PetDetallesComponent } from './components/pet-detalles/pet-detalles.component';
 //prime ng
 import {AccordionModule} from 'primeng/accordion';
-import { VisitListComponent } from './visit-list/visit-list.component';
-import { FormVisitComponent } from './form-visit/form-visit.component';     
+import { VisitListComponent } from './components/visit-list/visit-list.component';
+import { FormVisitComponent } from './components/form-visit/form-visit.component';     
 
 @NgModule({
   declarations: [
