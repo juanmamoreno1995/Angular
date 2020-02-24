@@ -24,10 +24,11 @@ export class VisitListComponent implements OnInit {
     if (confirm("Deseas borrar la visita??"))
       this.serVisi.borrarVisit(visit.id).subscribe(datos => {
         console.log(datos)
+        this.datos.guardarDatos(this.visits);
         this.eliminado.emit(datos);
         
       });
-      this.datos.guardarDatos(this.visits);
+     
   }
 
 }

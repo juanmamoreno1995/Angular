@@ -45,10 +45,12 @@ export class PetDetallesComponent implements OnInit {
   }
 
   actualizarVisitas(datos){
+    console.log(this.datosV.leerDatos());
     if (datos.result == "OK")
+    
           alert("Visita borrada")
         else alert("Fallo al borrar")
-    this.pet.visits= this.datosV.leerDatos;
+    this.pet.visits= this.datosV.leerDatos();
        
   }
 
