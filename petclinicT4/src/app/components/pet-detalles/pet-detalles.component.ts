@@ -50,7 +50,7 @@ export class PetDetallesComponent implements OnInit {
     
           alert("Visita borrada")
         else alert("Fallo al borrar")
-    this.pet.visits= this.datosV.leerDatos();
+    this.pet.visits= this.datosV.leerDatos()
        
   }
 
