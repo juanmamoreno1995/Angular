@@ -34,13 +34,13 @@ export class OwnerDetallesComponent implements OnInit {
   actualizaPet(datos) {
     console.log(datos);
     if (datos.result == "OK") {
-      alert("Mascota borrada con éxito")
+      
       this.servPet.obtenerPets(this.owner.id).subscribe(
         datos => this.owner = datos,
         error => console.log(error)
-
       )
-    }
+      
+    } //else alert("Visita borrada con éxito")
   }
 
   anhadirPet(owner: Owners) {

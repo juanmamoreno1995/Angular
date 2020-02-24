@@ -43,7 +43,7 @@ export class PetService {
       accion: "BorraPet",
       id: id
     });
-
+    
     return this.http.post<any>(this.url, param);
   }
 

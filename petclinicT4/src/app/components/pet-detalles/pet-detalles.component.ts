@@ -7,6 +7,7 @@ import { PetService } from 'src/app/servicios/pet.service';
 import { OwnerService } from 'src/app/servicios/owner.service';
 import { VisitService } from 'src/app/servicios/visit.service';
 import { DatosService } from 'src/app/servicios/datos.service';
+import { Visits } from 'src/app/models/visits';
 
 
 @Component({
@@ -15,21 +16,25 @@ import { DatosService } from 'src/app/servicios/datos.service';
   styleUrls: ['./pet-detalles.component.css']
 })
 export class PetDetallesComponent implements OnInit {
-  private arrPet: Pet[];
+  private arrVisi: Visits[];
   constructor(private http: HttpClient, private ruta: Router, private parametro: ActivatedRoute, private servPet: PetService,private serVi: VisitService, private datosV : DatosService) { }
   @Input() pet: Pet;
   @Input() owner: Owners;
+  
 
   @Output() eliminado = new EventEmitter()
 
   ngOnInit() {
-    console.log(this.owner)
+    console.log(this.owner, this.pet)
+    this.arrVisi = this.pet.visits;
+    console.log(this.arrVisi);
   }
 
   borrarPet(pet: Pet) {
     console.log(pet);
     if (confirm(`¿Deseas borrar la mascota ${pet.name}?`)) {
       this.servPet.borrarPets(pet.id).subscribe(datos => {
+        console.log("dentro de borrar pet",datos);
         this.eliminado.emit(datos);
       });
 
@@ -47,10 +52,12 @@ export class PetDetallesComponent implements OnInit {
   actualizarVisitas(datos){
     console.log(this.datosV.leerDatos());
     if (datos.result == "OK")
-    
           alert("Visita borrada")
         else alert("Fallo al borrar")
-    this.pet.visits= this.datosV.leerDatos()
+    this.pet.visits= this.datosV.leerDatos();
+    
+    console.log(datos);
+    this.eliminado.emit(datos);
        
   }
 
