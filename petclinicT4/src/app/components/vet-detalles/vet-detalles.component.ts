@@ -22,6 +22,8 @@ export class VetDetallesComponent implements OnInit {
       datos=>this.vete = datos,
       error=>console.log(error)
     );
+
+    console.log(this.vete.specialties)
   }
 
 }

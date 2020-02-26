@@ -1,4 +1,4 @@
-<h3 class="bg-dark text-light">Detalles Owner</h3>
+<h3 class="bg-dark text-light">Detalles Vet</h3>
 <table class="table table-bordered ">
     <tr>
         <th>ID</th>
@@ -11,6 +11,10 @@
     <tr>
         <th>APELLIDOS</th>
         <td>{{vete.lastName}}</td>
+    </tr>
+    <tr>
+        <th>ESPECIALIDADES</th>
+        <td *ngFor="let ve of vete.specialties">{{ve}}</td>
     </tr>
 </table>
 <button type="button" class="btn btn-outline-light text-dark" (click)="borrar(owner)">Borrar</button>
