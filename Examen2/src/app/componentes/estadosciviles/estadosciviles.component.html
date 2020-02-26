@@ -1,0 +1,13 @@
+<table border="1">
+    <thead>
+        <th>ID</th>
+        <th>NOMBRE</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ec of arrCivil">
+            <td>{{ec.ID}}</td>
+            <td>{{ec.NOMBRE}}</td>
+        </tr>
+    </tbody>
+    <tfoot>Numero de estados civiles {{numEs}}</tfoot>
+</table>

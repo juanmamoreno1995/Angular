@@ -1,0 +1,31 @@
+<table border="1">
+    <thead>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>APELLIDOS</th>
+        <th>SEXO</th>
+        <th>FECHA NACIMINETO</th>
+        <th>ESTADO CIVIL</th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let al of arrAlum">
+            <td>{{al.ID}}</td>
+            <td>{{al.NOMBRE}}</td>
+            <td>{{al.APELLIDOS}}</td>
+            <td>{{al.SEXO_NOMBRE}}</td>
+            <td>{{al.FECHA_NACIMIENTO | date:"dd-MM-yyyy"}}</td>
+            <td>{{al.NOMBRE_EC}}</td>
+            <td><button routerLink="/form/{{al.ID}}" [disabled]="mostrar">Modificar Alumno</button></td>
+            <td><button (click)="borrar(al)" [disabled]="mostrar">Borrar Alumno</button></td>
+
+        </tr>
+    </tbody>
+    <tfoot>Numero de alumn@ {{numAl}}</tfoot>
+</table>
+<div>
+    <button routerLink="/form/-1" [disabled]="mostrar">Añadir Alumno</button>
+</div>
+<div *ngIf="mostrar">
+    <app-alumno-del [alumno]="alumno" (eliminado)="Actualizar($event)"></app-alumno-del>
+</div>

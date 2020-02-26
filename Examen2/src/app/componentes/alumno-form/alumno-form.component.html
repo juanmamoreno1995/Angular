@@ -1,0 +1,46 @@
+<form #alumnoForm="ngForm" (ngSubmit)="anhadir(alumnoForm.value) ">
+
+    <div>
+        <label>NOMBRE: </label>
+        <input type="text" class="form-control" required [(ngModel)]="alumno.NOMBRE" name="nombre" #nombre="ngModel">
+        <div [hidden]="nombre.valid || nombre.pristine">
+            El Nombre es obligatorio
+        </div>
+    </div>
+
+    <div>
+        <label>APELLIDOS: </label>
+        <input type="text" class="form-control" required [(ngModel)]="alumno.APELLIDOS" name="apellidos" #apellidos="ngModel">
+        <div [hidden]="apellidos.valid || apellidos.pristine">
+            Los Apellidos son obligatorios
+        </div>
+    </div>
+
+    <div>
+        <label>SEXO </label>
+        <select #type="ngModel" name="sexo" [(ngModel)]="sexo" required>
+            <option *ngFor="let sexo of arrSexo" [ngValue]="sexo"> {{sexo.NOMBRE}}</option> <!-- value="{{tp.id}}"  Es lo mismo que el [ngValue]="type" se pasa el objeto entero-->
+        </select>
+
+    </div>
+
+    <div>
+        <label>FECHA DE NACIMIENTO </label>
+        <input type="date" class="form-control" required [(ngModel)]="alumno.FECHA_NACIMIENTO" name="fecha" #fecha="ngModel">
+        <div [hidden]="fecha.valid || fecha.pristine">
+            La fecha de nacimineto es obligatoria
+        </div>
+    </div>
+
+    <div>
+        <label>ESTADO CIVIL </label>
+        <select #type="ngModel" name="estado" [(ngModel)]="estCivil" required>
+            <option *ngFor="let est of arrCivil" [ngValue]="est"> {{est.NOMBRE}}</option> <!-- value="{{tp.id}}"  Es lo mismo que el [ngValue]="type" se pasa el objeto entero-->
+        </select>
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="!alumnoForm.valid">{{texto}} Alumno
+        </button>
+        <button type="button" routerLink="/listaAl">Cancelar</button>
+    </div>
