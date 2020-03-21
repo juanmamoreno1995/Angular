@@ -1,0 +1,20 @@
+<div class="container">
+    <h3>Sucesos</h3>
+    <!-- <button routerLink="/form/-1" class="btn btn-outline-light text-dark">Añadir Ownwer</button> -->
+    <table class="table table-bordered ">
+        <thead>
+            <th>Tipo</th>
+            <th>Lugar</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let suceso of arrSucesos">
+                <td>{{suceso.tipo }}</td>
+                <td>{{suceso.lugar}}</td>
+                <td>{{suceso.fecha | date:"dd-MM-yyyy"}}</td>
+                <td>{{suceso.descripcion}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
