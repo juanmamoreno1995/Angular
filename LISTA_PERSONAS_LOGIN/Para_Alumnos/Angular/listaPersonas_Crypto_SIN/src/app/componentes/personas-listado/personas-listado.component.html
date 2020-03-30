@@ -1,0 +1,21 @@
+<div class="container mt-2">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>DNI</th>
+        <th>NOMBRE</th>
+        <th>APELLIDOS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of listaPer">
+        <td>{{p.ID}}</td>
+        <td>{{p.DNI}}</td>
+        <td>{{p.NOMBRE}}</td>
+        <td>{{p.APELLIDOS}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>

@@ -1,0 +1,54 @@
+<h4>Nueva persona</h4>
+<div>
+  <p>Añadir nueva persona</p>
+
+  <form class="form-horizontal" #personaForm="ngForm">
+    <div class="form-group">
+      <label>DNI: </label>
+      <input type="text" class="form-control" required [(ngModel)]="persona.dni" name="dni" #dni="ngModel">
+      <div [hidden]="dni.valid || dni.pristine" class="alert alert-danger">
+        El DNI es obligatorio
+      </div>
+    </div>
+    <div class="form-group">
+      <label>NOMBRE: </label>
+      <input type="text" class="form-control" required [(ngModel)]="persona.nombre" name="nombre" #nombre="ngModel">
+      <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+        El Nombre es obligatorio
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>APELLIDOS: </label>
+      <input type="text" class="form-control" required [(ngModel)]="persona.apellidos" name="apellidos" #apellidos="ngModel">
+      <div [hidden]="apellidos.valid || apellidos.pristine" class="alert alert-danger">
+        Los Apellidos son obligatorios
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Imagen: </label>
+      <input type="file" class="form-control" name="imagen" (change)="leerImagen($event.target.files)">
+    </div>
+
+    <div>
+      <button class="btn btn-primary mr-3" type="button" [disabled]="!personaForm.valid" (click)="validar(personaForm.value)">
+				AÑADIR
+			</button>
+    </div>
+
+    <p>Imagenes:</p>
+    <div *ngIf="persona.imagenRedu" class="form-group">
+      <img [src]="'data:image/jpg;base64,'+persona.imagenRedu" />
+    </div>
+
+    <div *ngIf="persona.imagen" class="form-group">
+      <img [src]="'data:image/jpg;base64,'+persona.imagen" />
+    </div>
+
+
+
+  </form>
+
+</div>
